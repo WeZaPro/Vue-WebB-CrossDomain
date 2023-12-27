@@ -7,6 +7,7 @@ import Home from "@/pages/Home.vue";
 import About from "@/pages/About.vue";
 
 const router = createRouter({
+  mode: "history",
   history: createWebHistory(),
   routes: [
     {
