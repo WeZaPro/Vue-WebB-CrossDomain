@@ -2,7 +2,7 @@
 
 <template>
   <div id="app">
-    <nav>
+    <!-- <nav>
       <ul>
         <li>
           <router-link to="/" class="text-white decor-none">Home</router-link>
@@ -13,9 +13,9 @@
           >
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <h1>WEB SECOND PAGE App Page Liff App</h1>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
   </div>
   <div id="liff">
     <img :src="profile.pictureUrl" width="60" height="60" />
@@ -49,6 +49,7 @@ export default {
     };
   },
   mounted() {
+    alert("start");
     //(((((())))))
     let uri = window.location.search.substring(1);
     let params = new URLSearchParams(uri);
