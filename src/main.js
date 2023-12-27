@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import { createGtm } from "@gtm-support/vue-gtm";
 import { createApp } from "vue";
 import App from "./App.vue";
-import Home from "./pages/Home.vue";
-import About from "./pages/About.vue";
+import Home from "@/pages/Home.vue";
+import About from "@/pages/About.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +19,10 @@ const router = createRouter({
     },
   ],
 });
+
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ["/", "/home", "/about"];
+// });
 
 //createApp(App).use(router).mount("#app");
 createApp(App)
