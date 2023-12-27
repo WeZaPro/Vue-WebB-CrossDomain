@@ -49,9 +49,8 @@ export default {
     };
   },
   async mounted() {
-    await liff.init({ liffId: "1656824759-lQKpOazZ" });
+    // await liff.init({ liffId: "1656824759-lQKpOazZ" });
     // const profile = await liff.getProfile();
-
     //alert("start");
     //(((((())))))
     // let uri = window.location.search.substring(1);
@@ -64,11 +63,9 @@ export default {
     //     } else {
     //       this.loggedIn = liff.isLoggedIn();
     //       alert(`Line Login--> `);
-
     //       // get queryString
     //       this.getParam = params.get("param");
     //       console.log("param--->", this.getParam);
-
     //       this.getProfile();
     //       // this.getEnvironment();
     //       this.getFriendship();
@@ -80,6 +77,7 @@ export default {
   },
   methods: {
     async getProfile() {
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       await liff.getProfile().then((profile) => {
         console.log("profile--> ", profile);
         this.profile = profile;
@@ -87,6 +85,7 @@ export default {
       });
     },
     async getFriendship() {
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       await liff.getFriendship().then((data) => {
         console.log("getFriendship--> ", data);
         if (data.friendFlag) {
@@ -97,6 +96,7 @@ export default {
       });
     },
     async getAccessToken() {
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       console.log("token--> ");
       await liff.getAccessToken().then((token) => {
         console.log("token--> ", token);
@@ -109,6 +109,7 @@ export default {
     },
 
     async sendMsg() {
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       const profile = await liff.getProfile();
       console.log("userId---> " + profile.userId);
 
