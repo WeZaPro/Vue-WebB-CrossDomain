@@ -21,6 +21,7 @@
     <!-- <img :src="profile.pictureUrl" width="60" height="60" /> -->
     <!-- {{ profile.displayName }} -->
     <p>display Name : {{ profile.displayName }}</p>
+    <p>Name : {{ displayName }}</p>
     <p>userID : {{ profile.userId }}</p>
 
     <button @click="openLineChat">Line@</button>
@@ -56,6 +57,8 @@ export default {
       .then(async () => {
         if (liff.isLoggedIn()) {
           console.log("LIFF--->", liff.getProfile());
+          const profile = await liff.getProfile();
+          this.displayName = profile.displayName;
         } else {
           liff.login();
         }
