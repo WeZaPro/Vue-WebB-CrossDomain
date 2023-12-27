@@ -18,14 +18,14 @@
     <!-- <router-view></router-view> -->
   </div>
   <div id="liff">
-    <img :src="profile.pictureUrl" width="60" height="60" />
+    <!-- <img :src="profile.pictureUrl" width="60" height="60" /> -->
     <!-- {{ profile.displayName }} -->
     <p>display Name : {{ profile.displayName }}</p>
     <p>userID : {{ profile.userId }}</p>
-    <p>param : {{ this.getParam }}</p>
 
     <button @click="openLineChat">Line@</button>
     <button @click="sendMsg">chat</button>
+    <button @click="getProfile">profile</button>
   </div>
 </template>
 
@@ -94,6 +94,7 @@ export default {
     getProfile() {
       liff.init({ liffId: "1656824759-lQKpOazZ" });
       liff.getProfile().then((profile) => {
+        alert("profile" + profile);
         console.log("profile--> ", profile);
         this.profile = profile;
         // console.log("this.profile--> ", this.profile);
@@ -111,7 +112,7 @@ export default {
       });
     },
     async getAccessToken() {
-      //await liff.init({ liffId: "1656824759-lQKpOazZ" });
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       console.log("token--> ");
       await liff.getAccessToken().then((token) => {
         console.log("token--> ", token);
@@ -124,7 +125,7 @@ export default {
     },
 
     async sendMsg() {
-      //await liff.init({ liffId: "1656824759-lQKpOazZ" });
+      await liff.init({ liffId: "1656824759-lQKpOazZ" });
       const profile = await liff.getProfile();
       console.log("userId---> " + profile.userId);
 
