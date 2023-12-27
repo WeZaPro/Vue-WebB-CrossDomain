@@ -93,9 +93,12 @@ export default {
     //     this.occoredError = "error:" + err;
     //   });
   },
+  created() {
+    liff.init({ liffId: "1656824759-lQKpOazZ" });
+  },
   methods: {
     getProfile() {
-      liff.init({ liffId: "1656824759-lQKpOazZ" });
+      // liff.init({ liffId: "1656824759-lQKpOazZ" });
       liff.getProfile().then((profile) => {
         alert("profile" + profile);
         console.log("profile--> ", profile);
@@ -103,9 +106,9 @@ export default {
         // console.log("this.profile--> ", this.profile);
       });
     },
-    async getFriendship() {
+    getFriendship() {
       //await liff.init({ liffId: "1656824759-lQKpOazZ" });
-      await liff.getFriendship().then((data) => {
+      liff.getFriendship().then((data) => {
         console.log("getFriendship--> ", data);
         if (data.friendFlag) {
           console.log("getFriendship--> = true");
@@ -114,10 +117,10 @@ export default {
         }
       });
     },
-    async getAccessToken() {
-      await liff.init({ liffId: "1656824759-lQKpOazZ" });
+    getAccessToken() {
+      liff.init({ liffId: "1656824759-lQKpOazZ" });
       console.log("token--> ");
-      await liff.getAccessToken().then((token) => {
+      liff.getAccessToken().then((token) => {
         console.log("token--> ", token);
       });
     },
@@ -127,12 +130,12 @@ export default {
       window.open("https://line.me/ti/p/@889mtekm", "_blank");
     },
 
-    async sendMsg() {
-      await liff.init({ liffId: "1656824759-lQKpOazZ" });
+    sendMsg() {
+      liff.init({ liffId: "1656824759-lQKpOazZ" });
       //const profile = await liff.getProfile();
       //console.log("userId---> " + profile.userId);
 
-      await liff
+      liff
         .sendMessages([
           {
             type: "text",
