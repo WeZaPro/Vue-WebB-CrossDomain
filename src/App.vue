@@ -48,32 +48,35 @@ export default {
       getParam: "",
     };
   },
-  mounted() {
-    alert("start");
+  async mounted() {
+    await liff.init({ liffId: "1656824759-lQKpOazZ" });
+    // const profile = await liff.getProfile();
+
+    //alert("start");
     //(((((())))))
-    let uri = window.location.search.substring(1);
-    let params = new URLSearchParams(uri);
-    liff
-      .init({ liffId: "1656824759-lQKpOazZ" })
-      .then(() => {
-        if (!liff.isLoggedIn()) {
-          liff.login();
-        } else {
-          this.loggedIn = liff.isLoggedIn();
-          alert(`Line Login--> `);
+    // let uri = window.location.search.substring(1);
+    // let params = new URLSearchParams(uri);
+    // liff
+    //   .init({ liffId: "1656824759-lQKpOazZ" })
+    //   .then(() => {
+    //     if (!liff.isLoggedIn()) {
+    //       liff.login();
+    //     } else {
+    //       this.loggedIn = liff.isLoggedIn();
+    //       alert(`Line Login--> `);
 
-          // get queryString
-          this.getParam = params.get("param");
-          console.log("param--->", this.getParam);
+    //       // get queryString
+    //       this.getParam = params.get("param");
+    //       console.log("param--->", this.getParam);
 
-          this.getProfile();
-          // this.getEnvironment();
-          this.getFriendship();
-        }
-      })
-      .catch((err) => {
-        this.occoredError = "error:" + err;
-      });
+    //       this.getProfile();
+    //       // this.getEnvironment();
+    //       this.getFriendship();
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     this.occoredError = "error:" + err;
+    //   });
   },
   methods: {
     async getProfile() {
