@@ -126,28 +126,44 @@ export default {
 
     async sendMsg() {
       await liff.init({ liffId: "1656824759-lQKpOazZ" });
-      const profile = await liff.getProfile();
-      console.log("userId---> " + profile.userId);
+      //const profile = await liff.getProfile();
+      //console.log("userId---> " + profile.userId);
 
-      if (!liff.isInClient()) {
-        window.alert(
-          "This button is unavailable as LIFF is currently being opened in an external browser."
-        );
-      } else {
-        await liff
-          .sendMessages([
-            {
-              type: "text",
-              text: `Register/${profile.displayName}`,
-            },
-          ])
-          .then(() => {
-            window.alert(`Message sent Register ` + profile.userId);
-          })
-          .catch((error) => {
-            window.alert("Error sending message: " + error);
-          });
-      }
+      await liff
+        .sendMessages([
+          {
+            type: "text",
+            // text: `Register/${profile.displayName}`,
+            text: `Register`,
+          },
+        ])
+        .then(() => {
+          window.alert(`Message sent Register `);
+        })
+        .catch((error) => {
+          window.alert("Error sending message: " + error);
+        });
+
+      // if (!liff.isInClient()) {
+      //   window.alert(
+      //     "This button is unavailable as LIFF is currently being opened in an external browser."
+      //   );
+      // } else {
+      //   await liff
+      //     .sendMessages([
+      //       {
+      //         type: "text",
+      //         // text: `Register/${profile.displayName}`,
+      //         text: `Register`,
+      //       },
+      //     ])
+      //     .then(() => {
+      //       window.alert(`Message sent Register `);
+      //     })
+      //     .catch((error) => {
+      //       window.alert("Error sending message: " + error);
+      //     });
+      // }
     },
   },
 };
